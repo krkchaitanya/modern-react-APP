@@ -5,14 +5,14 @@ import Person from "./Person/Person";
 class App extends Component {
 state={
   persons:[
-  {name:"mikel",age:23},
+  {name:"jai",age:23},
   {name:"jack",age:21},
   {name:"john",age:"25"}
   ]
 }
 
 switchNameHandler=(newName)=>{
-  // console.log("clicked");
+  console.log("clicked");
   this.setState({
     persons:[
       {name:"mitchelMArtin",age:23},
