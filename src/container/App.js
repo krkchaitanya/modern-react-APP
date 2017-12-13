@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
-import classes from "./App.css";
-import Person from '../components/Person/Person';
+// import './App.css';
+import classes from './App.css';
+// import Person from '../components/Person/Person';
+import Persons from "../components/Persons/Persons";
 
 class App extends Component {
 
@@ -87,31 +88,42 @@ this.setState({
       padding:'8px',
       cursor:'pointer'
     };
-let Persons=null;
+let persons=null;
 
-    if(this.state.showPerson){
-      Persons=(
-      <div className="personList">
-        {
-          this.state.persons.map((person,index)=>{
-          return <Person click={()=>this.deletePersonHandler(index)} name={person.name} age={person.age}
-           key={person.id}
-           changed={(event)=>this.nameChangeHandler(event,person.id)}
-           >
-          </Person>
-          })
-        }
-        </div>
-      )
-    }
+    // if(this.state.showPerson){
+    //   Persons=(
+    //   <div className={classes.personList}>
+    //     {
+    //       this.state.persons.map((person,index)=>{
+    //       return <Person click={()=>this.deletePersonHandler(index)} name={person.name} age={person.age}
+    //        key={person.id}
+    //        changed={(event)=>this.nameChangeHandler(event,person.id)}
+    //        >
+    //       </Person>
+    //       })
+    //     }
+    //     </div>
+    //   )
+    // }
+
+if(this.state.showPerson){
+  persons=<Persons
+  persons={this.state.persons}
+  clicked={this.deletePersonHandler}
+  changed={this.nameChangeHandler}/>
+}
+
     
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h3>React Component</h3>
-        <button style={style} onClick={this.togglePersonsHandler.bind(this)}>Toggle persons</button>
+        {/* <button style={style} onClick={this.togglePersonsHandler.bind(this)}>Toggle persons</button> */}
 
         {/* <button onClick={this.switchNameHandler.bind(this,"max!")}>SwitchName</button> */}
-       {Persons}<br/>
+       
+       <button style={style} onClick={()=>this.setState({showPerson:true})}>Show Person</button>
+       
+       {persons}<br/>
       </div>
     );
   }

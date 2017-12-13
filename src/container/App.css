@@ -1,7 +1,9 @@
 .App {
   text-align: center;
+  padding: 20px;
 }
 
 .personList{
   padding: 20px;
+  text-align: center;
 }
