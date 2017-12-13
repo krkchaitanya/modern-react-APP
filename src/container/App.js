@@ -1,26 +1,44 @@
 import React, { Component } from 'react';
 import './App.css';
+import classes from "./App.css";
 import Person from '../components/Person/Person';
 
 class App extends Component {
-state={
-  persons:[
-  {id:'sdvdsv2',name:"jai",age:23},
-  {id:'ascaj3',name:"jack",age:21},
-  {id:'askjc2',name:"john",age:"25"}
-  ],
-  showPerson:false
+
+constructor(props){
+  super(props);
+  console.log('[App.js] inside constructor:',props);
+
+  this.state={
+    persons:[
+    {id:'sdvdsv2',name:"jai",age:23},
+    {id:'ascaj3',name:"jack",age:21},
+    {id:'askjc2',name:"john",age:"25"}
+    ],
+    otherState:'some other value',
+    showPerson:false
+  }
 }
 
-switchNameHandler=(newName)=>{
-  this.setState({
-    persons:[
-      {name:"mitchelMArtin",age:23},
-      {name:newName,age:24},
-      {name:"john",age:28}
-      ]
-  })
+
+componentWillMount(){
+  console.log('[App.js] inside componentWillMount()');
 }
+
+componentDidMount(){
+  console.log('[App.js] inside componentDidMount()');
+}
+
+
+// switchNameHandler=(newName)=>{
+//   this.setState({
+//     persons:[
+//       {name:"mitchelMArtin",age:23},
+//       {name:newName,age:24},
+//       {name:"john",age:28}
+//       ]
+//   })
+// }
 
 nameChangeHandler=(event, id)=>{
 const personIndex=this.state.persons.findIndex((p)=>{
