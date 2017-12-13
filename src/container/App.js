@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person';
+import Person from '../components/Person/Person';
 
 class App extends Component {
 state={
@@ -9,7 +9,7 @@ state={
   {id:'ascaj3',name:"jack",age:21},
   {id:'askjc2',name:"john",age:"25"}
   ],
-  personsShow:false
+  showPerson:false
 }
 
 switchNameHandler=(newName)=>{
@@ -43,10 +43,10 @@ persons[personIndex]=person;
 
 togglePersonsHandler=()=>{
 //  this.setState({
-//    personsShow:true
+//    showPerson:true
 //  })
-const doesShow=this.state.personsShow;
-this.setState({personsShow: !doesShow});
+const doesShow=this.state.showPerson;
+this.setState({showPerson: !doesShow});
 };
 
 deletePersonHandler=(personindex)=>{
@@ -71,28 +71,29 @@ this.setState({
     };
 let Persons=null;
 
-    if(this.state.personsShow){
+    if(this.state.showPerson){
       Persons=(
       <div className="personList">
-        {this.state.persons.map((person,index)=>{
+        {
+          this.state.persons.map((person,index)=>{
           return <Person click={()=>this.deletePersonHandler(index)} name={person.name} age={person.age}
            key={person.id}
            changed={(event)=>this.nameChangeHandler(event,person.id)}
            >
           </Person>
-        })
+          })
         }
-      </div>
+        </div>
       )
     }
-
+    
     return (
       <div className="App">
         <h3>React Component</h3>
         <button style={style} onClick={this.togglePersonsHandler.bind(this)}>Toggle persons</button>
 
         {/* <button onClick={this.switchNameHandler.bind(this,"max!")}>SwitchName</button> */}
-       {Persons}
+       {Persons}<br/>
       </div>
     );
   }
