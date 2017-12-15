@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-// import './App.css';
 import classes from './App.css';
-// import Person from '../components/Person/Person';
 import Persons from "../components/Persons/Persons";
+import Cockpit from "../components/Cockpit/Cockpit.js";
+
 
 class App extends Component {
 
@@ -42,7 +42,8 @@ componentDidMount(){
 // }
 
 nameChangeHandler=(event, id)=>{
-const personIndex=this.state.persons.findIndex((p)=>{
+
+  const personIndex=this.state.persons.findIndex((p)=>{
   return p.id===id;
 }) 
   const person={
@@ -54,16 +55,14 @@ const personIndex=this.state.persons.findIndex((p)=>{
 const persons=[...this.state.persons];
 persons[personIndex]=person;
 
-
- this.setState({
+  this.setState({
   persons:persons
  });
+
+
 }
 
 togglePersonsHandler=()=>{
-//  this.setState({
-//    showPerson:true
-//  })
 const doesShow=this.state.showPerson;
 this.setState({showPerson: !doesShow});
 };
@@ -81,48 +80,31 @@ this.setState({
 
   render() {
 
-    const style={
-      backgroungColor:'white',
-      font:"inherit",
-      border:"1px solid blue",
-      padding:'8px',
-      cursor:'pointer'
-    };
+// let btnClass="";
 let persons=null;
-
-    // if(this.state.showPerson){
-    //   Persons=(
-    //   <div className={classes.personList}>
-    //     {
-    //       this.state.persons.map((person,index)=>{
-    //       return <Person click={()=>this.deletePersonHandler(index)} name={person.name} age={person.age}
-    //        key={person.id}
-    //        changed={(event)=>this.nameChangeHandler(event,person.id)}
-    //        >
-    //       </Person>
-    //       })
-    //     }
-    //     </div>
-    //   )
-    // }
 
 if(this.state.showPerson){
   persons=<Persons
-  persons={this.state.persons}
-  clicked={this.deletePersonHandler}
-  changed={this.nameChangeHandler}/>
+            persons={this.state.persons}
+            clicked={this.deletePersonHandler}
+            changed={this.nameChangeHandler}/>
 }
 
-    
+    // btnClass=classes.Red;
+
     return (
       <div className={classes.App}>
         <h3>React Component</h3>
-        {/* <button style={style} onClick={this.togglePersonsHandler.bind(this)}>Toggle persons</button> */}
 
-        {/* <button onClick={this.switchNameHandler.bind(this,"max!")}>SwitchName</button> */}
+       <button  onClick={()=>this.setState({showPerson:true})}  >Show Person</button>
        
-       <button style={style} onClick={()=>this.setState({showPerson:true})}>Show Person</button>
-       
+          <Cockpit  
+          appTitle={this.props.title}
+          showPerson={this.state.showPerson}
+          persons={this.state.persons}
+          clicked={this.state.togglePersonsHandler}
+          />
+
        {persons}<br/>
       </div>
     );
