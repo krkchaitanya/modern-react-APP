@@ -80,14 +80,16 @@ this.setState({
 
   render() {
 
-// let btnClass="";
+
 let persons=null;
+let btnClass="";
 
 if(this.state.showPerson){
   persons=<Persons
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
             changed={this.nameChangeHandler}/>
+            btnClass=classes.Red;
 }
 
   
@@ -106,7 +108,7 @@ if(this.state.showPerson){
         <h3>React Component</h3>
 
        {/* <button  onClick={()=>this.setState({showPerson:true})}  >Show Person</button> */}
-       <button onClick={()=>this.togglePersonsHandler() }>ShowPersons</button>
+       <button className={btnClass} onClick={()=>this.togglePersonsHandler() }>ShowPersons</button>
        
           <Cockpit  
           appTitle={this.props.title}
