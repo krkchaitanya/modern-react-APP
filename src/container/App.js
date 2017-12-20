@@ -90,13 +90,23 @@ if(this.state.showPerson){
             changed={this.nameChangeHandler}/>
 }
 
-    // btnClass=classes.Red;
+  
+// let classes=[];
+
+// if(this.state.persons.length<=2){
+//   classes.push('red');
+// }
+// if(this.state.persons.length<=1){
+//   classes.push('bold');
+// }
+
 
     return (
       <div className={classes.App}>
         <h3>React Component</h3>
 
-       <button  onClick={()=>this.setState({showPerson:true})}  >Show Person</button>
+       {/* <button  onClick={()=>this.setState({showPerson:true})}  >Show Person</button> */}
+       <button onClick={()=>this.togglePersonsHandler() }>ShowPersons</button>
        
           <Cockpit  
           appTitle={this.props.title}
