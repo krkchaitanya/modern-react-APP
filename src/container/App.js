@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from './App.css';
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit.js";
+import Blog from "../container/Blog/Blog";
 
 
 class App extends Component {
@@ -117,7 +118,8 @@ if(this.state.showPerson){
           clicked={this.state.togglePersonsHandler}
           />
 
-       {persons}<br/>
+       {persons}<br/><hr/>
+       <Blog/>
       </div>
     );
   }
