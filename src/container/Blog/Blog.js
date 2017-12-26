@@ -8,10 +8,11 @@ import classes from './Blog.css';
 
 class Blog extends Component {
 // component did mount help in re rendering ....updating the state....performing http request...cause side effect ..in updating state data
-
+        
 state={
     posts:[],
-    selectedPostId:null
+    selectedPostId:null,
+    error:false
 }
 
 componentDidMount() {
@@ -24,13 +25,17 @@ componentDidMount() {
                 ...post,
                 author:'krish'
             }
-        })
-
+        });
+    
         this.setState({
             posts:updatedPosts
         })
+     }).catch((error)=>{
+            this.setState({
+                error:true
+            })
+        })
         // console.log(response);
-    })
 }
 
 
@@ -41,10 +46,14 @@ postSelectedHanlder=(id)=>{
 }
 
 render () {
+    let posts=<p style={{textAlign:'center'}}>Something went wrong</p>
 
-    const posts=this.state.posts.map((post)=>{
-        return <Post title={post.title} author={post.author} key={post.id}  clicked={()=>this.postSelectedHanlder(post.id)}/>
-    })
+    if(!this.state.error){
+        const posts=this.state.posts.map((post)=>{
+            return <Post title={post.title} author={post.author} key={post.id}  clicked={()=>this.postSelectedHanlder(post.id)}/>
+        })
+    }
+
 
         return (
             <div>
