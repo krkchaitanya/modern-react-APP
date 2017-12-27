@@ -43,6 +43,7 @@
   list-style:none;
   margin: 0;
   padding: 0;
+  text-decoration: none;  
 }
 
 .App li {
@@ -51,7 +52,7 @@
 }
 
 .App li a{
-  text-decoration: none;
+  text-decoration-line: none;
   color: grey;
   font-size: 25px;
   margin-left: 30px;
@@ -59,5 +60,7 @@
 .App li a:hover{
   color: darkolivegreen;
   font-size: 24px;
-  
+  text-decoration: none;
 }
+
+

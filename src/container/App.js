@@ -3,7 +3,7 @@ import classes from './App.css';
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit.js";
 import Blog from "../container/Blog/Blog";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter,NavLink} from "react-router-dom";
 
 class App extends Component {
 
@@ -110,8 +110,10 @@ if(this.state.showPerson){
       <header>
         <nav>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/new-post">New Post</a></li>
+            <li><NavLink  to="/">Home</NavLink></li>
+            <li><NavLink  to={{
+              pathname:"/new-post"
+            }}>NewPost</NavLink></li>
           </ul>  
         </nav>  
       </header>  
