@@ -49,7 +49,7 @@ render () {
     let posts=<p style={{textAlign:'center'}}>Something went wrong</p>
 
     if(!this.state.error){
-        const posts=this.state.posts.map((post)=>{
+     posts=this.state.posts.map((post)=>{
             return <Post title={post.title} author={post.author} key={post.id}  clicked={()=>this.postSelectedHanlder(post.id)}/>
         })
     }

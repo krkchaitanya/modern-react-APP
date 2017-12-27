@@ -3,7 +3,7 @@ import classes from './App.css';
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit.js";
 import Blog from "../container/Blog/Blog";
-
+import {BrowserRouter} from "react-router-dom";
 
 class App extends Component {
 
@@ -105,7 +105,16 @@ if(this.state.showPerson){
 
 
     return (
+      <BrowserRouter>
       <div className={classes.App}>
+      <header>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/new-post">New Post</a></li>
+          </ul>  
+        </nav>  
+      </header>  
         <h3>React Component</h3>
 
        {/* <button  onClick={()=>this.setState({showPerson:true})}  >Show Person</button> */}
@@ -121,6 +130,7 @@ if(this.state.showPerson){
        {persons}<br/><hr/>
        <Blog/>
       </div>
+      </BrowserRouter>
     );
   }
 }

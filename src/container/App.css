@@ -31,3 +31,33 @@
 .App button.Red:hover{
   background-color: salmon;
 }
+
+.App nav{
+  background-color: lightblue;
+  text-align: center;
+  padding: 10px;
+  min-height: 30px;
+}
+
+.App ul{
+  list-style:none;
+  margin: 0;
+  padding: 0;
+}
+
+.App li {
+  display: inline;
+  color: grey;
+}
+
+.App li a{
+  text-decoration: none;
+  color: grey;
+  font-size: 25px;
+  margin-left: 30px;
+}
+.App li a:hover{
+  color: darkolivegreen;
+  font-size: 24px;
+  
+}
