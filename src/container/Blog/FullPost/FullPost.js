@@ -7,27 +7,30 @@ import classes from './FullPost.css';
 class FullPost extends Component {
 
 state={
-    loadedPost:null
+    loadedPost:""
 }
 
-componentDidUpdate(){
-    if(this.props.id){
+componentDidMount(){
+
+    console.log(this.props,"loaded post is..",this.state.loadedPost);
+    
+    if(this.props.match.params.id){
         if(!this.state.loadedPost||(this.state.loadedPost&&this.state.loadedPost.id!==this.props.id))
-    axios.get('https://jsonplaceholder.typicode.com/posts/'+this.props.id)
+    axios.get('https://jsonplaceholder.typicode.com/posts/'+this.props.match.params.id)
     .then((response)=>{
         this.setState({
             loadedPost:response.data
         })
     })
     }
-}
+};
 
 deletePostHandler=()=>{
  axios.delete("https://jsonplaceholder.typicode.com/posts"+this.props.id)
  .then((response)=>{
     console.log(response);
  })
-}
+};  
 
     render () {
         let post = <p style={{textAlign:'center'}}>Please select a Post!</p>;

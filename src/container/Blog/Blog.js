@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Route} from "react-router-dom";
+import { Route, Switch} from "react-router-dom";
 
 import Posts from "./Posts/Posts";
 import NewPost from "./NewPost/NewPost";
-import FullPost from "./FullPost/FullPost"; 
+
 
 class Blog extends Component {
 // component did mount help in re rendering ....updating the state....performing http request...cause side effect ..in updating state data
@@ -23,11 +23,13 @@ render () {
                 <section>
                     <NewPost />
                 </section> */}
-                
-                <Route path="/" exact component={Posts}/>
-                <Route path="/new-post"exact component={NewPost } />
-                <Route path="/:id" exact component={FullPost} />
 
+
+                {/* order is important while placing routes........Switch only deals in loading only one Route exact......*/}
+                <Switch>
+                    <Route path="/new-post"exact component={NewPost } />
+                    <Route path="/" component={Posts}/>  
+                </Switch>
             </div>
         );
     }

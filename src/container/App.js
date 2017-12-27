@@ -106,32 +106,32 @@ if(this.state.showPerson){
 
     return (
       <BrowserRouter>
-      <div className={classes.App}>
-      <header>
-        <nav>
-          <ul>
-            <li><NavLink  to="/">Home</NavLink></li>
-            <li><NavLink  to={{
-              pathname:"/new-post"
-            }}>NewPost</NavLink></li>
-          </ul>  
-        </nav>  
-      </header>  
-        <h3>React Component</h3>
+          <div className={classes.App}>
+              <header>
+                <nav>
+                  <ul>
+                    <li><NavLink  to="/">Home</NavLink></li>
+                    <li><NavLink  to={{
+                      pathname:"/new-post"
+                    }}>NewPost</NavLink></li>
+                  </ul>  
+                </nav>  
+              </header>  
+                <h3>React Component</h3>
 
-       {/* <button  onClick={()=>this.setState({showPerson:true})}  >Show Person</button> */}
-       <button className={btnClass} onClick={()=>this.togglePersonsHandler() }>ShowPersons</button>
-       
-          <Cockpit  
-          appTitle={this.props.title}
-          showPerson={this.state.showPerson}
-          persons={this.state.persons}
-          clicked={this.state.togglePersonsHandler}
-          />
+              {/* <button  onClick={()=>this.setState({showPerson:true})}  >Show Person</button> */}
+              <button className={btnClass} onClick={()=>this.togglePersonsHandler() }>ShowPersons</button>
+              
+                  <Cockpit  
+                  appTitle={this.props.title}
+                  showPerson={this.state.showPerson}
+                  persons={this.state.persons}
+                  clicked={this.state.togglePersonsHandler}
+                  />
 
-       {persons}<br/><hr/>
-       <Blog/>
-      </div>
+              {persons}<br/><hr/>
+              <Blog/>
+          </div>
       </BrowserRouter>
     );
   }
