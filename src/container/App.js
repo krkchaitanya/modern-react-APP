@@ -4,6 +4,7 @@ import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit.js";
 import Blog from "../container/Blog/Blog";
 import {BrowserRouter,NavLink} from "react-router-dom";
+import Counter from './Counter/Counter';
 
 class App extends Component {
 
@@ -118,6 +119,16 @@ if(this.state.showPerson){
                 </nav>  
               </header>  
                 <h3>React Component</h3>
+                <hr/>
+                <br/>
+                <br/>
+                <br/>
+                <Counter className={classes.Counter}/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <hr/>
 
               {/* <button  onClick={()=>this.setState({showPerson:true})}  >Show Person</button> */}
               <button className={btnClass} onClick={()=>this.togglePersonsHandler() }>ShowPersons</button>
