@@ -7,7 +7,7 @@ import classes from './FullPost.css';
 class FullPost extends Component {
 
 state={
-    loadedPost:""
+    loadedPost:null
 }
 
 componentDidMount(){
