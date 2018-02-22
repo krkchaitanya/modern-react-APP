@@ -1,30 +1,50 @@
 const initialState={
-    counter:0
+    counter:0,
+    results:[]
 }
 
 const reducer=(state=initialState,action)=>{
-    if(action.type==='INCREMENT'){
+
+    switch(action.type){
+        case 'INCREMENT':
         return{
-        counter:state.counter+1
+            ...state,
+            counter:state.counter+1
         }
+        case 'DECREMENT':
+        return{
+            ...state,
+            counter:state.counter-1
+        }
+        case 'ADD':
+        return{
+            ...state,
+            counter:state.counter+10
+        }
+        case 'SUBTRACT':
+        return{
+            ...state,
+            counter:state.counter-5
+        }
+        case 'STORE_RESULT':
+        return{
+            ...state,
+            results:state.results.concat({id:new Date(),val:state.counter})
+        }
+        case 'DELETE_RESULT':
+        const updatedArray=state.results.filter(
+            
+            (ele)=>{ 
+                return ele.id!==action.resultElId  
+            }
+        );
+        return{
+            ...state,
+            results:updatedArray
+        }
+        
     }
 
-    if(action.type==="DECREMENT"){
-        return{
-        counter:state.counter-1
-        }
-    }
-
-    if(action.type==="ADD"){
-        return{
-            counter:state.counter+action.val
-        }
-    }
-    if(action.type==="SUBTRACT"){
-        return{
-            counter:state.counter-action.val
-        }
-    }
    return state;
 }
 

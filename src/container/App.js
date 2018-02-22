@@ -119,17 +119,9 @@ if(this.state.showPerson){
                 </nav>  
               </header>  
                 <h3>React Component</h3>
-                <hr/>
-                <br/>
-                <br/>
-                <br/>
-                <Counter className={classes.Counter}/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <hr/>
-
+                <div className={classes.Counter}>
+                <Counter />
+                </div>  
               {/* <button  onClick={()=>this.setState({showPerson:true})}  >Show Person</button> */}
               <button className={btnClass} onClick={()=>this.togglePersonsHandler() }>ShowPersons</button>
               

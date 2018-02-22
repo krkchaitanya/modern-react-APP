@@ -64,7 +64,10 @@
 }
 
 .Counter{
-  margin: 40px;
-  padding: 10px;
+  background-color: lightgray;
+  padding: 50px;
+  height: 600px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 15px 0;
 }
 
