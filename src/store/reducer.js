@@ -27,20 +27,15 @@ const reducer=(state=initialState,action)=>{
             counter:state.counter-5
         }
         case 'STORE_RESULT':
-        return{
+        return {
             ...state,
-            results:state.results.concat({id:new Date(),val:state.counter})
+            results: state.results.concat({id: new Date(), value: action.result})
         }
         case 'DELETE_RESULT':
-        const updatedArray=state.results.filter(
-            
-            (ele)=>{ 
-                return ele.id!==action.resultElId  
-            }
-        );
-        return{
+        const updatedArray = state.results.filter(result => result.id !== action.resultElId);
+        return {
             ...state,
-            results:updatedArray
+            results: updatedArray
         }
         
     }

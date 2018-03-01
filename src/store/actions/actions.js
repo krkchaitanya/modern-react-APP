@@ -25,9 +25,10 @@ export const add=(value)=>{
     }
 }
 
-export const substract=()=>{
+export const substract=(value)=>{
     return{
-        type:SUBTRACT
+        type:SUBTRACT,
+        val:value
     }
 }
 
@@ -37,3 +38,10 @@ export const storeResult = (res) => {
         result: res
     };
 };
+
+export const deleteResult=(resElId)=>{
+    return{
+        type:DELETE_RESULT,
+        resultElId:resElId
+    }
+}
