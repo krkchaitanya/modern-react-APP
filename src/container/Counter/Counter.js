@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actionCreators from "../../store/actions/actions";
+import * as actionCreators from "../../store/actions/index";
 
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
@@ -10,22 +10,6 @@ class Counter extends Component {
         counter: 0
     }
 
-    // counterChangedHandler = ( action, value ) => {
-    //     switch ( action ) {
-    //         case 'inc':
-    //             this.setState( ( prevState ) => { return { counter: prevState.counter + 1 } } )
-    //             break;
-    //         case 'dec':
-    //             this.setState( ( prevState ) => { return { counter: prevState.counter - 1 } } )
-    //             break;
-    //         case 'add':
-    //             this.setState( ( prevState ) => { return { counter: prevState.counter + value } } )
-    //             break;
-    //         case 'sub':
-    //             this.setState( ( prevState ) => { return { counter: prevState.counter - value } } )
-    //             break;
-    //     }
-    // }
 
     render () {
         return (
@@ -43,7 +27,7 @@ class Counter extends Component {
                     {this.props.storedResults.map((ele)=>{
                         return (<li key={ele.id} onClick={()=>this.props.onDeleteResult(ele.id)}><strong>{ele.value}----X</strong><br/></li>)
                     })}
-                </ul>    
+                </ul>
             </div>
         );
     }
