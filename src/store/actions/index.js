@@ -1,10 +1,11 @@
 export {
-
     add,
     substract,
     increment,
-    decrement,
+    decrement
+} from "./counter";
+
+export {
     storeResult,
     deleteResult
-
-} from "./counter";
+} from "./result.js";
