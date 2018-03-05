@@ -1,6 +1,5 @@
 import * as actionTypes from "./actionTypes";
 
-
 export const saveResult=(res)=>{
     return{
       type: actionTypes.STORE_RESULT,
@@ -10,9 +9,9 @@ export const saveResult=(res)=>{
 
 
 export const storeResult = (res) => {
-    return (dispatch, getSatate)=>{
+    return (dispatch, getState)=>{
       setTimeout(()=>{
-          const oldCount=getSatate().counter;
+          const oldCount=getState().ctr.counter;
           console.log(oldCount);
         dispatch(saveResult(res));
       },2000);
